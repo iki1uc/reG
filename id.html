@@ -1,15 +1,53 @@
-<script src="IDkoop.js"></script>
-<script src="IDneutral.js"></script>
-<script src="IDpook.js"></script>
-
-<script>
-function showID(mode) {
-    const map = {
-        koop: ID_KOOP,
-        neutral: ID_NEUTRAL,
-        pook: ID_POOK
-    };
-    const id = map[mode];
-    document.getElementById("id-info").innerText = id.info();
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>reG – ID</title>
+<style>
+body {
+  font-family: serif;
+  background: #fafafa;
+  padding: 40px;
+  color: #222;
 }
-</script>
+.symbol {
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  border-left: 4px solid #444;
+  background: white;
+}
+</style>
+</head>
+<body>
+
+<div class="symbol">⚚</div>
+
+<div class="section">
+  <h2>6‑Werte‑Norm</h2>
+  <p>G · M · A · R · Z · Q</p>
+</div>
+
+<div class="section">
+  <h2>Bedeutung</h2>
+  <p>reG ist die Geo‑Feld‑Achse im Continuum.  
+  Sie verteilt Raum, Gruppen, Felder und Ebenen.</p>
+</div>
+
+<div class="section">
+  <h2>Quelle</h2>
+  <p>Feld · Fläche · Lage · Ursprung</p>
+</div>
+
+<div class="section">
+  <h2>Zustände</h2>
+  <p>Nord · Süd · Ost · West</p>
+</div>
+
+</body>
+</html>
