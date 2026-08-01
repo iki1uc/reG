@@ -1,67 +1,29 @@
-# reG – Geo‑Feld‑Achse
+# reB – Borg‑Achse
 
-## 1. Zweck
-reG ist die Geo‑Feld‑Achse im Continuum.  
-Sie verteilt Raum, Gruppen, Felder und Ebenen.  
-Während reA stabilisiert und reB bewegt, ordnet reG die Lage, Fläche und Position.
+Dieses Repository enthält die Borg‑Station des 12‑Stations‑Systems.
 
-Diese Achse ist notwendig, um das Continuum in Felder zu gliedern,  
-damit jede Achse ihren Platz, ihre Richtung und ihre Wirkung erhält.
+## Dateien
 
----
+### Navigation Vector
+- **reB.nav.vector**  
+- **reB.nav.vector.csv**  
+Beide enthalten die NC‑Navigation (W A D S Q E Y C), tmp‑Felder und Farbcodes.
 
-## 2. Die 6‑Werte‑Norm (Mess‑Vektor)
-Der Mess‑Vektor besteht aus sechs Achsen:
+### Zustand
+- **re-zustand-borg-4.csv**  
+Zustandsmatrix der Borg‑Station.
 
-1. **Gravitation (G)** – Zentrum, Anker  
-2. **Magnetismus (M)** – Richtung, Ordnung  
-3. **Anziehung (A)** – Dynamik, Wertfluss  
-4. **Raumfluss (R)** – Continuum, vertikale 9‑Frequenz  
-5. **Zustand (Z)** – Phase, Form  
-6. **Quelle (Q)** – Ursprung, Ressource  
+### Achsen‑Definitionen
+- **achse-bedeutung-8.csv**  
+- **achse-funktion-3.csv**  
+- **achse-modul-12.csv**  
+- **achse-quelle-12.csv**
 
-Diese sechs Werte bilden den vektor‑gemäßen Maßstab für alle Achsen.
+### HTML
+- **index.html** – Anzeige und Vector‑Interpreter  
+- **id.html** – Stationsindex
 
----
+## Zweck
 
-## 3. Die Klammer für alle Menschen
-Damit jeder versteht, worum es geht:
-
-- **Shogun = Raum**  
-- **Schach = Regel**  
-- **Skat = Mensch**
-
-Diese drei Ebenen erklären die Achse reG für alle Verständnisebenen.
-
----
-
-## 4. Die Unendlichkeits‑Formel
-Die Achse reG folgt der Unendlichkeits‑Formel:
-
-∞ = (G, M, A, R, Z, Q)
-
-Sie skaliert rein und raus, hoch und runter, innen und außen,  
-ohne ihre Struktur zu verlieren.
-
----
-
-## 5. Dateien
-Diese Achse besteht aus folgenden Komponenten:
-
-- **ID.html** – Identität der Achse  
-- **index.html** – Übersicht und Navigation  
-- **achse-bedeutung-8.csv** – Bedeutungsfelder  
-- **achse-funktion-3.csv** – Funktionsachsen  
-- **achse-modul-12.csv** – Modulräume  
-- **achse-quelle-12.csv** – Quellenfelder  
-- **re-zustand-geo-feld-4.csv** – Geo‑Feld‑Zustände  
-
----
-
-## 6. Zusammenfassung
-reG ist die Achse, die das Continuum in Felder teilt.  
-Sie ist die Lage‑Achse, die Positionen definiert,  
-damit Stabilisation (reA) und Bewegung (reB)  
-überhaupt sinnvoll stattfinden können.
-
-Sie ist rein, klar, stabil und vektor‑gemäß.
+Die Borg‑Achse (reB) ist Teil des 9×9 → 3×3 → 3×1 Systems und dient als
+NC‑fähige Achse mit eigener tmp‑Navigation und Score‑Berechnung.
