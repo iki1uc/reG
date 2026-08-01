@@ -2,7 +2,8 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>reG – Übersicht</title>
+<title>reS / reG – Navigation & Vector Übersicht</title>
+
 <style>
 body {
   font-family: serif;
@@ -10,31 +11,42 @@ body {
   padding: 40px;
   color: #222;
 }
+
 .section {
   margin: 20px auto;
-  max-width: 700px;
+  max-width: 900px;
   padding: 20px;
   border-left: 4px solid #444;
   background: white;
 }
-a {
-  color: #444;
-  text-decoration: none;
-  font-weight: bold;
+
+h2 {
+  margin-top: 0;
 }
-a:hover {
-  text-decoration: underline;
+
+.karo {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  border: 1px solid #333;
+}
+
+.point {
+  font-size: 14px;
+  color: #333;
 }
 </style>
 </head>
+
 <body>
 
-<h1>reG – Geo‑Feld‑Achse</h1>
+<h1>Navigation & Vector – Übersicht</h1>
 
 <div class="section">
   <h2>Dokumente</h2>
   <p><a href="README.md">README.md</a></p>
-  <p><a href="ID.html">ID.html</a></p>
+  <p><a href="id.html">ID.html</a></p>
 </div>
 
 <div class="section">
@@ -44,14 +56,78 @@ a:hover {
     <li><a href="achse-funktion-3.csv">Achse Funktion</a></li>
     <li><a href="achse-modul-12.csv">Achse Modul</a></li>
     <li><a href="achse-quelle-12.csv">Achse Quelle</a></li>
-    <li><a href="re-zustand-geo-feld-4.csv">Achse Zustand (Geo‑Feld)</a></li>
+    <li><a href="re-zustand-sym-code-4.csv">reS – Zustand (Sym‑Code)</a></li>
+    <li><a href="reS.nav.vector">reS – Navigation Vector</a></li>
+    <li><a href="g.nav.vector">reG – Geo Navigation Vector</a></li>
   </ul>
 </div>
 
 <div class="section">
-  <h2>Verständnis für alle</h2>
-  <p>Shogun = Raum · Schach = Regel · Skat = Mensch</p>
+  <h2>reS.nav.vector – Anzeige</h2>
+  <div id="reSnav"></div>
 </div>
+
+<div class="section">
+  <h2>g.nav.vector – Anzeige</h2>
+  <div id="gNav"></div>
+</div>
+
+<div class="section">
+  <h2>VECTOR_index.list.index.allrespo – Anzeige</h2>
+  <div id="vectorAll"></div>
+</div>
+
+<script type="module">
+
+// CSV Loader
+async function loadCSV(path) {
+  const text = await fetch(path).then(r => r.text());
+  const lines = text.trim().split("\n");
+  const header = lines[0].split(";");
+  return lines.slice(1).map(line => {
+    const cols = line.split(";");
+    const obj = {};
+    header.forEach((h, i) => obj[h] = cols[i]);
+    return obj;
+  });
+}
+
+// Load reS.nav.vector
+const reSnav = await loadCSV("./reS.nav.vector");
+document.getElementById("reSnav").innerHTML =
+  reSnav.map(v =>
+    `<div class="karo" style="background:${v.color}"></div>
+     <span class="point">
+       id:${v.id} | tmp:${v.tmp} | sym:${v.sym} |
+       W:${v.W} A:${v.A} D:${v.D} S:${v.S} Q:${v.Q} E:${v.E} Y:${v.Y} C:${v.C}
+     </span><br>`
+  ).join("");
+
+// Load g.nav.vector
+const gNav = await loadCSV("./g.nav.vector");
+document.getElementById("gNav").innerHTML =
+  gNav.map(v =>
+    `<div class="karo" style="background:${v.color}"></div>
+     <span class="point">
+       id:${v.id} | tmp:${v.tmp} | sym:${v.sym} |
+       W:${v.W} A:${v.A} D:${v.D} S:${v.S} Q:${v.Q} E:${v.E} Y:${v.Y} C:${v.C}
+     </span><br>`
+  ).join("");
+
+// Load VECTOR_index.list.index.allrespo
+import { VECTOR_INDEX_ALLRESPO } from "./VECTOR_index.list.index.allrespo";
+
+const respo = VECTOR_INDEX_ALLRESPO.respo;
+
+document.getElementById("vectorAll").innerHTML =
+  respo.map(v =>
+    `<div class="karo" style="background:${v.color}"></div>
+     <span class="point">
+       state:${v.state} | tmp:${v.tmp} | sym:${v.sym}
+     </span><br>`
+  ).join("");
+
+</script>
 
 </body>
 </html>
